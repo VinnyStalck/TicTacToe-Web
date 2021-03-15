@@ -13,6 +13,7 @@ body {
 	top: 50%;
 	left: 50%;
 	transform: translate(-50%, -50%);
+	transition: all 0.3s ease;
 }
 .select-box {
 	background: #fff;
@@ -20,6 +21,11 @@ body {
 	border-radius: 8px;
 	max-width: 330px;
 	width: 100%;
+}
+.select-box.hide {
+	opacity: 0;
+	pointer-events: none;
+	transform: translate(-50%, -50%) scale(0.9);
 }
 .select-box header {
 	font-size: 23px;
@@ -61,7 +67,14 @@ body {
 }
 
 .playboard {
-	display: none;
+	opacity: 0;
+	pointer-events: none;
+	transform: translate(-50%, -50%) scale(0.9);
+}
+.playboard.show {
+	opacity: 1;
+	pointer-events: auto;
+	transform: translate(-50%, -50%) scale(1);
 }
 .playboard .details {
 	padding: 7px;
