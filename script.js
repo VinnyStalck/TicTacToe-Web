@@ -39,7 +39,34 @@ function clickedBox(element) {
 		element.innerHTML = `<i class="${playerXSymbol}"></i>`;
 	}
 	// Muda de jogador
-		players.classList.add("active");
+	players.classList.add("active");
 	// Faz o element não ser mais clickável
 	element.style.pointerEvents = "none";
+
+
+	let randomDelayTime = ((Math.random() * 1000) + 200).toFixed();
+	setTimeout(() => {
+		bot();
+	}, randomDelayTime);
+}
+
+function bot(){
+	let array = [];
+	for (let i = 0; i < allBoxes.length; i++) {
+		if (allBoxes[i].childElementCount == 0) {
+			array.push(i);
+			console.log(i+" has no children");
+		}
+	}
+	let randomBox = array[Math.floor(Math.random() * array.length)];
+	if (array.length > 0) {
+		if (players.classList.contains("player")) {
+			// Addiciona o simbolo
+			allBoxes[randomBox].innerHTML = `<i class="${playerXSymbol}"></i>`;
+		} else {
+			allBoxes[randomBox].innerHTML = `<i class="${playerOSymbol}"></i>`;
+		}
+		players.classList.remove("active");
+	}
+	allBoxes[randomBox].style.pointerEvents = "none";
 }
