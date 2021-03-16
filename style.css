@@ -148,15 +148,23 @@ body {
 	border-radius: 8px;
 	max-width: 350px;
 	width: 100%;
-	display: none;
+	opacity: 0;
+	pointer-events: none;
+	transform: translate(-50%, -50%) scale(0.9);
 }
-.result-box .winner-box {
+.result-box.show {
+	opacity: 1;
+	pointer-events: auto;
+	transform: translate(-50%, -50%) scale(1);
+}
+
+.result-box .winner-text {
 	font-size: 25px;
 	font-weight: 500;
 	display: flex;
 	justify-content: center;
 }
-.result-box .winner-box p {
+.result-box .winner-text p {
 	font-weight: 600;
 	margin: 0 5px;
 }
